@@ -1,0 +1,45 @@
+## Suppose version 2 has a problem.
+Check the release history:
+helm history fairy-bake
+
+You should see the installation and upgrade revisions.
+
+## Roll back to the previous revision. If revision 1 is the original installation, run
+helm rollback fairy-bake 1
+
+##Check the Deployment:
+kubectl get deployments
+
+##Check the image:
+kubectl get deployments -o wide
+
+//The Deployment should return to the earlier image configuration, fairy-bake:v1.
+
+Refresh:
+http://localhost:8081
+
+we should see the original website version again.
+
+Note that the old image must remain available to the KIND nodes for the rollback to work. In this exercise, we loaded both versions into the cluster.
+
+##Verify the Complete Deployment
+
+Run the following commands:
+helm list
+helm status fairy-bake
+helm history fairy-bake
+kubectl get deployments
+kubectl get pods
+kubectl get services
+kubectl get pods -o wide
+
+These commands let you inspect the Helm release and its underlying Kubernetes resources.
+
+##Clean Up the Practical
+helm uninstall fairy-bake
+
+## Verify that its application resources are removed:
+kubectl get pods
+
+## We can remove the chart directory if you no longer need it:
+rm -rf ~/bakery-app/fairy-bake-chart
