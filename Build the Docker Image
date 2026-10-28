@@ -1,0 +1,17 @@
+docker build -t fairy-bake:v1 .
+
+### Understand the command:
+
+docker build: builds an image.
+-t fairy-bake:v1: assigns the image name and tag.
+.: uses the current directory as the build context.
+
+## Check the image:
+docker images
+
+At this stage, the image exists in Docker on your EC2 host.
+
+However, KIND runs Kubernetes nodes inside separate Docker containers. Those nodes do not automatically have access to every image in the host's local image store.
+
+We need to make the image available to the KIND cluster.
+
