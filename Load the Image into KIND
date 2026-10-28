@@ -1,0 +1,79 @@
+##First, confirm the cluster name:
+kind get clusters
+
+## Load the image:
+kind load docker-image fairy-bake:v1 --name helm-lab
+
+## Create a Helm Chart for Your Application
+cd ~/bakery-app
+
+##Create a Helm chart:
+helm create fairy-bake-chart
+
+## Inspect the chart:
+ls -R fairy-bake-chart
+
+Helm creates a reusable chart containing templates, metadata, and default configuration values.
+
+### Now open the chart's configuration
+
+nano fairy-bake-chart/values.yaml
+
+Find the relevant entries and change them to the following.
+
+replicaCount: 2
+
+image:
+  repository: fairy-bake
+  pullPolicy: IfNotPresent
+  tag: "v1"
+
+service:
+  type: ClusterIP
+  port: 80
+
+autoscaling:
+  enabled: false
+
+Do not replace the entire generated file with only these lines. Preserve the remaining fields used by the chart's templates.
+
+Save the file.
+
+## Validate the Helm Chart
+helm lint fairy-bake-chart
+
+## Now render the chart:
+helm template fairy-bake ./fairy-bake-chart
+
+## Inspect the generated Deployment.
+You should find an image reference resembling:
+image: "fairy-bake:v1"
+The exact formatting depends on the template.
+Check the replica count:
+replicas: 2
+These are the values that Helm will use when rendering the Kubernetes resources.
+
+## Deploy the Application Using Helm
+Now install the chart.
+
+helm install fairy-bake ./fairy-bake-chart
+helm list
+
+Expected Output
+fairy-bake
+
+## Check the Pods:
+kubectl get pods
+
+## Check the Deployment:
+kubectl get deployments
+
+##Check the Service:
+kubectl get services
+
+The generated Service name will typically resemble:
+fairy-bake-fairy-bake-chart
+
+##Inspect them:
+kubectl describe pods
+
