@@ -1,0 +1,28 @@
+       Developer (Your Windows Laptop)
+                    |
+                    | SSH
+                    v
+             AWS EC2 Instance
+                    |
+                    v
+               Docker Image
+                    |
+                    v
+              KIND Cluster
+                    |
+                    v
+                Helm Chart
+                    |
+          +---------+---------+
+          |                   |
+          v                   v
+      Deployment            Service
+          |
+          v
+      Application Pods
+          |
+          v
+       Web Application
+          |
+          v
+      Windows Browser
