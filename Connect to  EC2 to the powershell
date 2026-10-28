@@ -1,0 +1,17 @@
+STEP - 1
+##PowerShell on Windows.
+ssh -i "C:\Users\Dell\Downloads\iot-project-key.pem" ubuntu@ec2<PUBLIC IP>ap-south-1.compute.amazonaws.com
+
+##Once connected, check the Kubernetes cluster:
+kubectl get nodes
+
+##Check Helm:
+helm version
+
+##Check Docker:
+docker ps
+
+STEP - 2
+Create a project directory:
+mkdir -p ~/bakery-app
+cd ~/bakery-app
