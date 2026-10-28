@@ -1,0 +1,178 @@
+File Name - nano index.html
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Fairy Bake | Freshly Baked Happiness</title>
+
+```
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #fffaf5;
+        color: #49352c;
+        line-height: 1.6;
+    }
+
+    header {
+        background: #633f32;
+        color: white;
+        padding: 22px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+    }
+
+    .hero {
+        min-height: 400px;
+        padding: 80px 8%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: linear-gradient(120deg, #f8dfc8, #fff3e6);
+    }
+
+    .hero h2 {
+        font-size: clamp(36px, 5vw, 56px);
+        max-width: 650px;
+        line-height: 1.15;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        max-width: 600px;
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+
+    .button {
+        display: inline-block;
+        width: fit-content;
+        background: #9b5d43;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 6px;
+        text-decoration: none;
+    }
+
+    .products {
+        padding: 60px 8%;
+        text-align: center;
+    }
+
+    .products h2 {
+        font-size: 34px;
+        margin-bottom: 30px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 24px;
+    }
+
+    .card {
+        background: white;
+        padding: 28px 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px #00000010;
+    }
+
+    .icon {
+        font-size: 48px;
+        margin-bottom: 12px;
+    }
+
+    .card h3 {
+        margin-bottom: 10px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 25px;
+        background: #633f32;
+        color: white;
+    }
+</style>
+
+</head>
+
+<body>
+    <header>
+        <h1>The Fairy Bake 🧁</h1>
+      
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Our Treats</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h2>Freshly Baked Happiness, Every Day.</h2>
+
+    <p>
+        Discover delightful cakes, delicious cupcakes, buttery cookies,
+        and freshly baked treats made with love.
+    </p>
+
+    <a class="button" href="#products">Explore Our Bakery</a>
+</section>
+
+<section class="products" id="products">
+    <h2>Our Special Treats</h2>
+
+    <div class="grid">
+        <div class="card">
+            <div class="icon">🎂</div>
+            <h3>Celebration Cakes</h3>
+            <p>Beautiful cakes for your memorable occasions.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🧁</div>
+            <h3>Delicious Cupcakes</h3>
+            <p>Soft, fluffy cupcakes with irresistible flavours.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🍪</div>
+            <h3>Fresh Cookies</h3>
+            <p>Crunchy, buttery cookies baked to perfection.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🥐</div>
+            <h3>Bakery Specials</h3>
+            <p>Freshly prepared treats for every craving.</p>
+        </div>
+    </div>
+</section>
+
+<footer id="contact">
+    <p>The Fairy Bake — Made with Love ❤️</p>
+    <p>Freshness, flavour, and happiness in every bite.</p>
+</footer>
+
+</body>
+</html>
