@@ -1,0 +1,53 @@
+## First, identify the Service:
+kubectl get services
+
+##Copy the actual Service name.
+##Start port forwarding on EC2:
+
+kubectl port-forward svc/YOUR_BAKERY_SERVICE_NAME 8081:80
+Replace YOUR_BAKERY_SERVICE_NAME with the actual name.
+
+For example, if the Service is named fairy-bake-fairy-bake-chart:
+kubectl port-forward svc/fairy-bake-fairy-bake-chart 8081:80
+
+Keep this terminal open.
+
+Now, from Windows PowerShell, create an SSH tunnel:
+
+ssh -i "C:\Users\Dell\Downloads\iot-project-key.pem" -L 8081:127.0.0.1:8081 ubuntu@ec2-65-0-99-2.ap-south-1.compute.amazonaws.com
+
+Keep the SSH session open.
+
+Open your browser and visit:
+
+http://localhost:8081
+
+You should see your custom bakery website.
+
+Your deployment flow is now:
+
+index.html
+    |
+    v
+Dockerfile
+    |
+    v
+Docker Image: fairy-bake:v1
+    |
+    v
+KIND Cluster
+    |
+    v
+Helm Chart
+    |
+    v
+Kubernetes Deployment
+    |
+    v
+Two Bakery Pods
+    |
+    v
+Kubernetes Service
+    |
+    v
+Browser
