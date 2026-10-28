@@ -1,0 +1,41 @@
+##Open the HTML file:
+nano ~/bakery-app/index.html
+
+##Modify the main heading:
+<h2>Freshly Baked Happiness, Every Day.</h2>
+
+For example, change it to:
+<h2>Welcome to The Fairy Bake — Version 2!</h2>
+
+Save the file.
+
+##Build a new image:
+cd ~/bakery-app
+docker build -t fairy-bake:v2 .
+
+##Load the new image into KIND:
+kind load docker-image fairy-bake:v2 --name helm-lab
+
+##Now update the Helm chart configuration:
+nano ~/bakery-app/fairy-bake-chart/values.yaml
+
+Change:
+tag: "v1"
+to:
+tag: "v2"
+
+Save the file.
+
+##Upgrade the release:
+helm upgrade fairy-bake ~/bakery-app/fairy-bake-chart
+
+##Check the rollout:
+kubectl rollout status deployment/YOUR_BAKERY_DEPLOYMENT_NAME
+
+##Use the actual Deployment name from:
+kubectl get deployments
+
+##Refresh your browser:
+http://localhost:8081
+
+If the browser displays the old version, try a hard refresh and check the image used by the Deployment.
