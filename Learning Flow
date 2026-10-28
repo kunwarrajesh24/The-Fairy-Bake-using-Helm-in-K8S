@@ -1,0 +1,9 @@
+1. Create an application.
+2. Build a Docker image.
+3. Make the image available to Kubernetes.
+4. Create a Helm chart.
+5. Configure the chart using values.yaml.
+6. Deploy the application.
+7. Access the application from your Windows browser.
+8. Upgrade the application.
+9. Roll back to an earlier version.
